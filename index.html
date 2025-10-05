@@ -1,163 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Art Gallery</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-
 </head>
-<body class="min-h-screen bg-cover bg-center bg-fixed text-white font-sans" style="background-image: url('./images/back.jpeg');">
 
+<body
+  class="min-h-screen bg-cover bg-center bg-fixed text-white font-sans"
+  style="background-image: url('./images/back.jpeg');"
+>
 
-  <!-- Navbar -->
-  <nav class="flex justify-between items-center px-12 py-6  bg-white/70 backdrop-blur-sm">
-    <img class="w-40" src="./images/logo.png" alt="Logo">
-    <ul class="flex gap-4  text-black">
-      <li><a href="#" class="hover:text-yellow-300 transition">HOME</a></li>
-      <li><a href="#" class="hover:text-yellow-300 transition">GALLERY</a></li>
-      <li><a href="#" class="hover:text-yellow-300 transition">ARTISTS</a></li>
-      <li><a href="#" class="hover:text-yellow-300 transition">ABOUT</a></li>
-      <li><a href="#" class="hover:text-yellow-300 transition">CONTACT</a></li>
+  <!-- ✅ Navbar -->
+  <nav class="px-6 py-4 bg-white/70 backdrop-blur-sm flex justify-between items-center relative z-50">
+    <!-- Logo -->
+    <img class="w-32" src="./images/logo.png" alt="Logo" />
+
+    <!-- Hamburger Icon (visible only on small screens) -->
+    <button id="menu-toggle" class="text-black text-3xl md:hidden focus:outline-none">
+      &#9776;
+    </button>
+
+    <!-- Navbar Links -->
+    <ul id="menu"
+      class="flex gap-6 text-black md:flex hidden flex-col md:flex-row absolute md:static bg-white/90 md:bg-transparent top-full left-0 w-full md:w-auto text-center md:text-left shadow md:shadow-none transition-all duration-300">
+      <li><a href="#" class="block py-2 hover:text-yellow-400 transition">HOME</a></li>
+      <li><a href="#" class="block py-2 hover:text-yellow-400 transition">GALLERY</a></li>
+      <li><a href="#" class="block py-2 hover:text-yellow-400 transition">ARTISTS</a></li>
+      <li><a href="#" class="block py-2 hover:text-yellow-400 transition">ABOUT</a></li>
+      <li><a href="#" class="block py-2 hover:text-yellow-400 transition">CONTACT</a></li>
     </ul>
   </nav>
 
-<!-- Hero Section with Search -->
-<section class="flex flex-col items-center justify-center text-center h-[100vh] bg-transparent">
-  <h1 class="text-5xl fw-3 mt-4 drop-shadow-lg text-black text-center">Welcome to the Art Gallery</h1>
-  
-<!-- Transparent Search Bar with visible placeholder -->
-<div class="w-full max-w-lg">
-  <input 
-    type="text" 
-    placeholder="Search artworks, artists, or collections..." 
-    class="w-full px-6 py-3 rounded-full bg-black/20 border border-white/70 text-white placeholder-white text-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400"
-  >
-</div>
+  <!-- Toggle Menu Script -->
+  <script>
+    const menuToggle = document.getElementById("menu-toggle");
+    const menu = document.getElementById("menu");
+    menuToggle.addEventListener("click", () => {
+      menu.classList.toggle("hidden");
+    });
+  </script>
 
-</section>
+  <!-- ✅ Hero Section -->
+  <section class="flex flex-col items-center justify-center text-center h-[100vh] bg-transparent">
+    <h1 class="text-5xl mt-4 drop-shadow-lg text-black font-bold">
+      Welcome to the Art Gallery
+    </h1>
+
+    <div class="w-full max-w-lg mt-6">
+      <input
+        type="text"
+        placeholder="Search artworks, artists, or collections..."
+        class="w-full px-6 py-3 rounded-full bg-black/20 border border-white/70 text-white placeholder-white text-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400"
+      />
+    </div>
+  </section>
+
+  <!-- ✅ Gallery Grid -->
+  <section class="px-12 py-10 bg-black/40 backdrop-blur-sm">
+    <h2 class="text-3xl text-white mb-8 text-center font-semibold">Featured Artworks</h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+      <!-- Card 1 -->
+      <div class="bg-white/10 rounded-xl overflow-hidden shadow-lg hover:scale-105 transition transform">
+        <img src="./images/ab.jpg" class="w-full h-60 object-cover" alt="Art 1" />
+        <div class="p-4">
+          <h3 class="text-xl font-bold text-black">Abstract Dreams</h3>
+          <p class="text-black text-sm">Oil on Canvas</p>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="bg-white/10 rounded-xl overflow-hidden shadow-lg hover:scale-105 transition transform">
+        <img src="./images/gd.jpg" class="w-full h-60 object-cover" alt="Art 2" />
+        <div class="p-4">
+          <h3 class="text-xl font-bold text-black">Golden Hour</h3>
+          <p class="text-black text-sm">Modern Impressionism</p>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="bg-white/10 rounded-xl overflow-hidden shadow-lg hover:scale-105 transition transform">
+        <img src="./images/sr.jpg" class="w-full h-60 object-cover" alt="Art 3" />
+        <div class="p-4">
+          <h3 class="text-xl font-bold text-black">Silent Reflections</h3>
+          <p class="text-black text-sm">Photography</p>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="bg-white/10 rounded-xl overflow-hidden shadow-lg hover:scale-105 transition transform">
+        <img src="./images/mc.jpeg" class="w-full h-60 object-cover" alt="Art 4" />
+        <div class="p-4">
+          <h3 class="text-xl font-bold text-black">Mystic Colors</h3>
+          <p class="text-black text-sm">Acrylic Painting</p>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="bg-white/10 rounded-xl overflow-hidden shadow-lg hover:scale-105 transition transform">
+        <img src="./images/ud.jpeg" class="w-full h-60 object-cover" alt="Art 5" />
+        <div class="p-4">
+          <h3 class="text-xl font-bold text-black">Urban Dreams</h3>
+          <p class="text-black text-sm">Mixed Media</p>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="bg-white/10 rounded-xl overflow-hidden shadow-lg hover:scale-105 transition transform">
+        <img src="./images/sh.jpg" class="w-full h-60 object-cover" alt="Art 6" />
+        <div class="p-4">
+          <h3 class="text-xl font-bold text-black">Silent Harmony</h3>
+          <p class="text-black text-sm">Photography</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
 
-<!-- Gallery Grid -->
-<section class="px-12 py-10 bg-black/40 backdrop-blur-sm">
-  <h2 class="text-3xl text-white mb-8 text-center">Featured Artworks</h2>
-  
-  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-    <!-- Card 1 -->
-    <div class="bg-white/10 rounded-xl overflow-hidden shadow-lg hover:scale-105 transition transform">
-      <img src="./images/ab.jpg" class="w-full h-60 object-cover" alt="Art 1">
-      <div class="p-4">
-        <h3 class="text-xl font-bold text-black">Abstract Dreams</h3>
-        <p class="text-black text-sm">Oil on Canvas</p>
-      </div>
-    </div>
-    
-    <!-- Card 2 -->
-    <div class="bg-white/10 rounded-xl overflow-hidden shadow-lg hover:scale-105 transition transform">
-      <img src="./images/gd.jpg" class="w-full h-60 object-cover" alt="Art 2">
-      <div class="p-4">
-        <h3 class="text-xl font-bold text-black">Golden Hour</h3>
-        <p class=" text-sm text-black">Modern Impressionism</p>
-      </div>
-    </div>
-    
-    <!-- Card 3 -->
-    <div class="bg-white/10 rounded-xl overflow-hidden shadow-lg hover:scale-105 transition transform">
-      <img src="./images/sr.jpg" class="w-full h-60 object-cover" alt="Art 3">
-      <div class="p-4">
-        <h3 class="text-xl font-bold text-black">Silent Reflections</h3>
-        <p class=" text-sm text-black">Photography</p>
-      </div>
-    </div>
-    
-    <!-- Card 4 -->
-    <div class="bg-white/10 rounded-xl overflow-hidden shadow-lg hover:scale-105 transition transform">
-      <img src="./images/mc.jpeg" class="w-full h-60 object-cover" alt="Art 4">
-      <div class="p-4">
-        <h3 class="text-xl font-bold text-black">Mystic Colors</h3>
-        <p class=" text-sm text-black">Acrylic Painting</p>
-      </div>
-    </div>
-    
-    <!-- Card 5 -->
-    <div class="bg-white/10 rounded-xl overflow-hidden shadow-lg hover:scale-105 transition transform">
-      <img src="./images/ud.jpeg" class="w-full h-60 object-cover" alt="Art 5">
-      <div class="p-4">
-        <h3 class="text-xl font-bold text-black">Urban Dreams</h3>
-        <p class="text-black text-sm">Mixed Media</p>
-      </div>
-    </div>
-    
-    <!-- Card 6 -->
-    <div class="bg-white/10 rounded-xl overflow-hidden shadow-lg hover:scale-105 transition transform">
-      <img src="./images/sh.jpg" class="w-full h-60 object-cover" alt="Art 6">
-      <div class="p-4">
-        <h3 class="text-xl font-bold text-black">Silent Harmony</h3>
-        <p class="text-black text-sm">Photography</p>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- exhibition -->
-<section class="px-12 py-10 bg-black/40 backdrop-blur-sm">
- <section class="h-screen px-6 py-8 flex items-center">
-  <div class="container mx-auto h-full">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 h-full">
-
+  <!-- ✅ Exhibition Section -->
+  <section class="px-12 py-16 bg-black/40 backdrop-blur-sm min-h-screen">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
       <!-- LEFT -->
-      <div class="flex flex-col justify-between p-4 h-full">
-                  <h1 class="text-2xl font-bold mb-2">EXHIBITIONS</h1>
-        <img src="./images/c1.webp" alt="img" class=" mb-4">
-        <div>
-          <p class="text-gray-300">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit voluptatibus, facere magni ipsa sequi est nobis voluptatem qui, quia perferendis, ab aliquam eaque. Sint vel, unde suscipit dignissimos amet consequatur!</p>
+      <div class="flex flex-col justify-between p-4">
+        <h1 class="text-2xl font-bold mb-4">EXHIBITIONS</h1>
+        <img src="./images/c1.webp" alt="img" class="rounded-lg mb-4" />
+        <p class="text-gray-300">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque vel, velit voluptatibus, facere magni ipsa sequi est nobis voluptatem.
+        </p>
+      </div>
+
+      <!-- RIGHT -->
+      <div class="p-4">
+        <h1 class="text-2xl font-bold mb-4">CAMPAIGNS</h1>
+        <p class="text-gray-300 mb-4">
+          Ratione sunt quisquam corporis porro enim blanditiis sit rem odit soluta error. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        </p>
+        <hr class="border-gray-600 mb-4" />
+
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <img src="./images/c2.jpg" alt="" class="w-full object-cover rounded" />
+            <h3 class="mt-2 text-gray-300 text-sm">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, dolor error labore modi eos quibusdam ducimus saepe nisi qui ipsam cumque nemo! Ea, ratione saepe sunt et perspiciatis maxime natus.
+            </h3>
+          </div>
+          <div>
+            <img src="./images/c4.jpg" alt="" class="w-full object-cover rounded" />
+            <h3 class="mt-2 text-gray-300 text-sm">
+              Veritatis delectus commodi omnis similique porro ullam. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod voluptas nihil adipisci molestias possimus odio tempora vel aut officia quisquam sed consectetur accusamus, beatae quidem placeat nam, reiciendis est. Inventore.
+            </h3>
+          </div>
+           <div>
+            <img src="./images/c1.jpg" alt="" class="w-full object-cover rounded" />
+            <h3 class="mt-2 text-gray-300 text-sm">
+              Veritatis delectus commodi omnis similique porro ullam. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet quaerat neque praesentium dolorem, sit temporibus eos, modi fugiat quo fuga blanditiis. Ipsa consequuntur dolores et eum a voluptas rerum illo.
+            </h3>
+          </div>
+           <div>
+            <img src="./images/c4.jpeg" alt="" class="w-full object-cover rounded" />
+            <h3 class="mt-2 text-gray-300 text-sm">
+              Veritatis delectus commodi omnis similique porro ullam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis ipsa omnis ex dolorum? Laudantium ratione ad earum corrupti nostrum quod reprehenderit inventore voluptatum, fuga itaque aut voluptates natus minima consequuntur?
+            </h3>
+          </div>
         </div>
       </div>
-     <!-- RIGHT -->
-      <div class="flex gap-4 flex-col p-4 h-full">
-        <div>
-          <h1 class="text-2xl font-bold mb-2">CAMPAIGNS</h1>
-          <p class="text-gray-300 mb-4">Ratione sunt quisquam corporis porro enim blanditiis sit rem odit soluta error. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim, iure tempore! Laborum officia facilis aspernatur praesentium obcaecati unde consequuntur! Facilis omnis veniam porro neque blanditiis iure distinctio velit recusandae explicabo. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit rem culpa fuga explicabo, quia accusantium consequuntur nostrum, beatae doloremque magnam voluptatum, qui aliquid quasi natus? Nobis unde at omnis praesentium.</p>
-          <hr class="border-gray-600 mb-4">
-        </div>
-
-        <div class="grid grid-cols-2 gap-4 me-auto">
-          <div>
-            <img src="./images/c2.jpg" alt="" class="w-full  object-cover rounded">
-            <h3 class="mt-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Pariatur quaerat animi architecto! Dolore quos vitae molestiae nesciunt deleniti cumque ipsam a est cum aperiam inventore eius, corrupti, minima, omnis unde.</h3>
-      
-          </div>
-         
-          <div>
-            <img src="./images/c4.jpg" alt="" class="w-full  object-cover rounded">
-            <h3 class="mt-2 ">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis delectus commodi omnis similique porro ullam, ea pariatur debitis consectetur alias ex qui ipsa modi, rem dolore magnam soluta earum veniam?</h3>
-            
-          </div>
-           <div>
-            <img src="./images/c2.jpg" alt="" class="w-full  object-cover rounded">
-            <h3 class="mt-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Pariatur quaerat animi architecto! Dolore omnis unde.</h3>
-      
-          </div>
-         
-           <div>
-            <img src="./images/c2.jpg" alt="" class="w-full  object-cover rounded">
-            <h3 class="mt-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Pariatur quaerat animi architecto! Dolore quos vitae molestiae nesciunt dee.</h3>
-      
-          </div>
-         
-          
-        </div>
-
     </div>
-  </div>
-</section>
-</section>
+  </section>
 
-  <!-- Footer -->
+  <!-- ✅ Footer -->
   <footer class="bg-black/70 text-center text-gray-300 py-6 ">
     © 2025 Art Gallery. All Rights Reserved.
   </footer>
-
 </body>
 </html>
